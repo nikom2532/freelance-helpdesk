@@ -1,0 +1,61 @@
+<?
+include "../checksession.php";
+
+$wsitem_id=$_POST['wsitem_id'];
+$wsitem_detail=$_POST['wsitem_detail'];
+$brand=$_POST['brand'];
+$model=$_POST['model'];
+$serial=$_POST['serial'];
+$shop=$_POST['shop'];
+$shop_date=$_POST['shop_date'];
+$shop_p=$_POST['shop_p'];
+$acc_id=$_POST['acc_id'];
+$comment=$_POST['comment'];
+//$item_id=$_POST['item_id'];
+$section_id=$_POST['section'];
+$ws_id=$_POST['ws'];
+#$isused=$_POST['isused'];
+$isused='T';
+$date=date('Y-m-d H:i:s');
+
+include "../inc/FunctionDB.php";
+Conn2DB();
+
+$strSQL = "SELECT * FROM ws_item WHERE wsitem_id='$wsitem_id' ";
+$Result = mysql_query($strSQL);
+$Nums = mysql_num_rows($Result); 
+
+		if( $Nums>=1 ){
+					echo "<script>";
+					echo "alert('รหัสนี้  ถูกใช้งานแล้วค่ะ'); ";
+					echo "location.href='wsitem_add.php'; ";
+					echo "</script>";
+		}else{
+
+	$strSQL = "INSERT INTO ws_item(wsitem_id,wsitem_detail,brand,model,serial,it_asset,com_id,section_id,name,isused,create_by,create_date) ";
+	$strSQL.="VALUES ('$wsitem_id','$wsitem_detail','$brand','$model','$serial','$acc_id','$ws_id','$section_id','$shop','$isused','{$_SESSION["sess_empid"]}','$date')" ;
+	$Result1 = mysql_query($strSQL);
+/*
+	$strSQL2="
+					UPDATE `computer`
+						SET 
+							`wsitem_id` = '{$wsitem_id}'
+						WHERE `com_id` = '{$ws_id}'
+					;";
+	$Result2 = mysql_query($strSQL2);
+*/
+	if(($Result1){
+		echo "<script>";
+	   echo "alert('บันทึกข้อมูลเรียบร้อยแล้วค่ะ '); ";
+		echo "location.href='wsitem_list.php'; ";
+		echo "</script>";
+	}else{
+   		echo "<script>";
+		echo "alert('ไม่สามารถบันทึกข้อมูลได้ค่ะ'); ";
+		echo "location.href='wsitem_add.php'; ";
+		echo "</script>";   
+		#echo mysql_error();
+	}
+}
+
+?>

@@ -1,0 +1,11 @@
+[15-Jan-2013 03:47:24] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/delberta/public_html/helpdesk/cases.php on line 248
+[28-Feb-2013 02:15:40] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/delberta/public_html/helpdesk/cases2.php on line 23
+[28-Feb-2013 02:15:40] PHP Warning:  copy() [<a href='function.copy'>function.copy</a>]: Filename cannot be empty in /home/delberta/public_html/helpdesk/cases2.php on line 36
+[28-Feb-2013 02:19:02] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/delberta/public_html/helpdesk/cases2.php on line 23
+[28-Feb-2013 02:19:02] PHP Warning:  copy(upload/2013000015000-2.png) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory in /home/delberta/public_html/helpdesk/cases2.php on line 36
+[28-Feb-2013 02:19:29] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/delberta/public_html/helpdesk/cases2.php on line 23
+[28-Feb-2013 02:19:29] PHP Warning:  copy() [<a href='function.copy'>function.copy</a>]: Filename cannot be empty in /home/delberta/public_html/helpdesk/cases2.php on line 36
+[28-Feb-2013 02:50:41] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/delberta/public_html/helpdesk/cases2.php on line 23
+[28-Feb-2013 02:50:41] PHP Warning:  copy(upload/201300001IMG_20130214_104123.jpg) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory in /home/delberta/public_html/helpdesk/cases2.php on line 36
+[28-Feb-2013 03:33:21] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/delberta/public_html/helpdesk/cases2.php on line 23
+[28-Feb-2013 03:33:21] PHP Warning:  copy(upload/2013000015000.png) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory in /home/delberta/public_html/helpdesk/cases2.php on line 36

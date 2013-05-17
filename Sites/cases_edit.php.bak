@@ -1,0 +1,286 @@
+<?
+include ("checksession.php");
+
+$id=$_GET['id'];
+
+include ("inc/FunctionDB.php");
+Conn2DB();
+
+$id = $_GET["cid"];
+
+$strSQL="SELECT A.*,B.com_detail AS product,C.wsitem_detail AS producttype,D.emp_id AS owner_id,CONCAT(D.ename,' ',D.esurname) AS emp_name,CONCAT(D1.ename,' ',D1.esurname) AS create_by,CONCAT(D2.ename,' ',D2.esurname) AS it_owner,CONCAT(D3.ename,' ',D3.esurname) AS work_by,E.wsitem_id,E.wsitem_detail,E.brand,E.model,E.serial,F.wsitem_id,F.wsitem_detail,G.section_detail,G.section_detail AS department ";
+
+$strSQL.="FROM cases ";
+$strSQL.="A LEFT JOIN computer B ON(A.com_id=B.com_id) ";
+$strSQL.="LEFT JOIN ws_item C ON(B.wsitem_id=C.wsitem_id) ";
+$strSQL.="LEFT JOIN employee D ON(A.create_by=D.emp_id)  ";
+$strSQL.="LEFT JOIN employee D1 ON(A.create_by=D1.emp_id)  ";
+$strSQL.="LEFT JOIN employee D2 ON(A.work_by=D2.emp_id) ";
+$strSQL.="LEFT JOIN employee D3 ON(A.work_by=D3.emp_id)  ";
+$strSQL.="LEFT JOIN ws_item E ON(B.wsitem_id=E.wsitem_id)  ";
+$strSQL.="LEFT JOIN ws_item F ON(E.wsitem_id=F.wsitem_id)  ";
+$strSQL.="LEFT JOIN section G ON(A.section_id=G.section_id)  ";
+$strSQL.="WHERE case_id=201300006 ";
+
+
+
+#echo $strSQL."<p>"; 
+$cmdQuery=mysql_query($strSQL);
+$fetchArray=mysql_fetch_array($cmdQuery);
+#echo mysql_error();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-874" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!--<link rel="stylesheet" href="css/default.css" media="screen,projection" type="text/css" />-->
+<link rel="stylesheet" href="css/lightbox.css" media="screen,projection" type="text/css" />
+
+<script type="text/javascript" src="jquery/prototype.js"></script>
+<script type="text/javascript" src="jquery/lightbox.js"></script>
+<script src="multifile_compressed.js"></script>
+<title>Case Preview</title>
+</head>
+<body>
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="1002"><? include ("menu.php"); ?></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>
+    <fieldset style="width:900px"><legend><img src="images/title_detail.png" width="150" height="47" /></legend><br />
+			<table width="900" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                  <td width="126">&nbsp;</td>
+              <td width="20">&nbsp;</td>
+              <td width="334">&nbsp;</td>
+              <td width="124">&nbsp;</td>
+              <td width="15">&nbsp;</td>
+              <td width="281">&nbsp;</td>
+              </tr>
+            <tr>
+              <td align="right">รหัสเรื่อง :</td>
+              <td>&nbsp;</td>
+              <td align="left"><?=$id;?></td>
+              <td align="right">เจ้าของเรื่อง :</td>
+              <td>&nbsp;</td>
+              <td align="left"><?=$fetchArray['emp_name']; //ชื่อเจ้าของเรื่อง ?></td>
+            </tr>
+                <tr>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                  <td align="right">แผนก :</td>
+                  <td>&nbsp;</td>
+                   <td align="left"><?=$fetchArray['department']; //ชื่อแผนก?> </td>
+              </tr>
+                <tr>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                  <td align="right">แจ้งเรื่องโดย :</td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?=$fetchArray['create_by'];//ชื่อของคนเปิดเรื่อง  อาจไม่ใช่คนเดียวกับที่เปิดเรื่อง ?></td>
+              </tr>
+                <tr>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                  <td align="right">วันที่แจ้ง :</td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?=$fetchArray['create_date']?></td>
+              </tr>
+                <tr>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                  <td align="right">รับเรื่องโดย :</td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?=$fetchArray['work_by'];// ชื่อเจ้าหน้าที่ IT ที่รับเรื่องคนแรก ?></td>
+              </tr>
+                <tr>
+                  <td align="right">หัวเรื่อง :</td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?=$fetchArray['title'];?></td>
+                  <td align="right">วันที่รับเรื่อง :</td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?=$fetchArray['work_date'];?></td>
+              </tr>
+                <tr>
+                  <td rowspan="6" align="right" valign="top">รายละเอียด :</td>
+                  <td rowspan="6" valign="top">&nbsp;</td>
+                  <td rowspan="6" align="left"><label>
+                    <textarea name="textarea" id="textarea" cols="45" rows="10" style="background-color:#E8E8E8"><?=$fetchArray['description'];?>
+              </textarea>
+                  </label></td>
+                  <td align="right" valign="top">IT ที่รับผิดชอบ : </td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?=$fetchArray['it_owner'];?>
+                      <?
+                  if($fetchArray['status']==2 || $fetchArray['status']==3 || $fetchArray['status']==4 AND $fetchArray['it_id']==$sess_empid){
+				  			echo " <br><a href='assign.php?case_id=".$fetchArray['case_id']."'  class='lbOn'><img src='images/btn_assign.png' border='0' align='middle' /></a>";
+				  }
+				  ?>                  </td>
+              </tr>
+                <tr>
+                  <td align="right">อุปกรณ์ :</td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?=$fetchArray['name']?></td>
+              </tr>
+                <tr>
+                  <td align="right">Brand :</td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?=$fetchArray['brand']?></td>
+              </tr>
+                <tr>
+                  <td align="right">รุ่น :</td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?=$fetchArray['model']?></td>
+              </tr>
+                <tr>
+                  <td align="right">Serial No. :</td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?=$fetchArray['serial']?></td>
+              </tr>
+                <tr>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+              </tr>
+                <tr>
+                  <td height="33" align="right" valign="top">เอกสารแนบ :</td>
+                  <td>&nbsp;</td>
+                  <td align="left"><?
+			$name2 = explode(',',$fetchArray['attachments']);
+			for ($i=0;$i < count($name2);$i++)
+			{
+				if(!empty($name2[$i]))
+				{
+					//echo $name2[$i].'<br/>';
+					echo '<img src="images/clip.png" width="16" height="16" alt="'.$name2[$i].'" style="align:text-bottom" />';
+					echo '<a href="download.php?download_file='.$name2[$i].'">'.$name2[$i].'</a><br />';
+				}
+			}
+			?>                  </td>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td height="30" align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">
+                  <form id="form" name="form" method="post"  enctype="multipart/form-data" action="uploadfile.php">
+                  <input type="file" name="file_1" id="my_file_element" />
+                  <!--<img src="images/plus-icon.png" width="16" height="16" onclick="JavaScript:fncCreateElement();" title="เพิ่มเอกสารแนบ" />-->
+                  <br />
+                <div id="files_list"></div>
+                <label>
+                <input type="submit" name="button" id="button" value="Upload" />
+                </label>
+                <script>
+	<!-- Create an instance of the multiSelector class, pass it the output target and the max number of files -->
+	var multi_selector = new MultiSelector( document.getElementById( 'files_list' ), 5 );
+	<!-- Pass in the file element -->
+	multi_selector.addElement( document.getElementById( 'my_file_element' ) );
+            </script>
+                <input name="id" type="hidden" id="id" value="<?=$id?>" />
+                  </form>
+                  </td>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td height="30" align="right">สถานะเรื่อง :</td>
+                  <td>&nbsp;</td>
+                  <td align="left">
+                    <?
+                    if($fetchArray['isused'] ==  "0"){
+						$status = "Open";
+					}else if($fetchArray['isused'] ==  "1"){
+						$status = "Working";
+					}else if($fetchArray['isused'] ==  "2"){
+						$status = "Accept";
+					}else{
+						$status = "Close";
+					}
+					//$newDate = date("d-m-Y", strtotime($fetchArray['create_date']));
+echo $status;
+					?>
+</td>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td colspan="2">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                                <tr>
+                  <td colspan="2">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+                                <tr>
+                                  <td colspan="2">&nbsp;</td>
+                                  <td>&nbsp;</td>
+                                  <td align="left">&nbsp;</td>
+                                  <td>&nbsp;</td>
+                                  <td align="left">&nbsp;</td>
+                                </tr>
+                                <tr>
+                  <td colspan="2">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="right">&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="left">&nbsp;</td>
+            </table>
+    </fieldset>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><label></label></td>
+  </tr>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

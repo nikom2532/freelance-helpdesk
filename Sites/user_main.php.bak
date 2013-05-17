@@ -1,0 +1,137 @@
+<?
+include ("checksession.php");
+include ("inc/FunctionDB.php");
+
+Conn2DB();
+$strSQL = "SELECT * FROM cases   WHERE  cases.create_by='$sess_empid' OR  cases.work_by='$sess_empid' AND cases.issused != 1 ";
+$cmdQuery =  mysql_query($strSQL);
+$num_rows = mysql_num_rows($cmdQuery);
+
+$pagelen = 15  ;// กำหนดว่าจะให้แสดงกี่ record ใน 1 หน้า
+
+$page = $_GET['page'];
+	if(empty($page)){ $page=1; }
+
+$totalpage=ceil($num_rows / $pagelen);
+$goto = ($page-1) * $pagelen;
+
+$strSQL .=" ORDER BY case_ID DESC  LIMIT $goto , $pagelen"; 
+$cmdQuery1 = mysql_query($strSQL);
+//$Nums=mysql_num_rows($cmdQuery1)
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-874" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="css/jquery.marquee.css" rel="stylesheet" title="default" media="all" />
+<link href="css/vtip.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery/vtip1.js"></script>
+<script type="text/javascript" src="jquery/jquery.marquee.js"></script>
+<script type="text/javascript" src="jquery/jquery.marquee.min.js"></script>
+
+<script type="text/javascript">
+// Function Massage Broadcast
+$(document).ready(function (){
+  $("#marquee3").marquee({yScroll: "bottom"});
+});
+</script>
+
+<SCRIPT LANGUAGE="JavaScript">
+// Function Popup
+function Start(page)
+ {
+ OpenWin = this.open(page, "CtrlWindow","toolbar=No,menubar=No,location=No,scrollbars=No,resizable=Yes,status=No,width=400,height=280,top=150,");
+ }
+</SCRIPT>
+
+</head>
+<body>
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="3"><? include ("menu.php");?></td>
+  </tr>
+  <tr>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td width="158" rowspan="2" align="left"><img src="images/title_main.png" width="150" height="47" /></td>
+    <td width="289" align="left"><span class="blue">
+      <?=$sess_ename."&nbsp;&nbsp;".$sess_esurname ;?>
+      <a href="javascript:void(0);" onclick="javascript:Start ('admin/member_editpw.php');">
+      <input name="Submit" type="submit" class="Gray3" id="button" value="แก้ไขรหัสผ่าน" />
+    </a></span></td>
+    <td width="557" align="right" class="Gray3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+    <td width="557" align="right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center"><table width="950" border="1" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+      <tr>
+        <td><table width="948" border="0" cellpadding="0" cellspacing="2" >
+          <tr>
+            <td width="53" height="43" align="center" background="images/bar5_1.png" class="white">ลำดับ</td>
+            <td width="120" background="images/bar5_1.png" class="white"><p align="center" class="white">รหัสเรื่อง</p></td>
+            <td width="455" align="center" background="images/bar5_1.png" class="white">หัวเรื่อง</td>
+            <td width="183" align="center" background="images/bar5_1.png" class="white">วันที่เปิด /  เวลา</td>
+            <td width="119" align="center" background="images/bar5_1.png" class="white">สถานะ</td>
+          </tr>
+            <?
+			$i=$pagelen*($page-1)+1;
+			while($fetchArray=mysql_fetch_array($cmdQuery1)){
+				if($bg == "#FFFFFF") {  
+						$bg = "#E7E9EB";
+				} else {
+						$bg = "#FFFFFF";
+				}
+			?>
+          <tr bgcolor="<? echo $bg ;?>"><!--start  row-->
+          			<td style="text-align:center"><?=$i?></td>
+                    <td>&nbsp;&nbsp;&nbsp;<a href="cases_edit.php?cid=<?=$fetchArray['case_ID']?>"><?=$fetchArray['case_ID']?></a></td>
+                    <td>&nbsp;&nbsp;&nbsp;<?=$fetchArray['title']?></td>
+                    <?
+                    if($fetchArray['issused'] ==  "0"){
+						$status = "Open";
+					}else if($fetchArray['issused'] ==  "1"){
+						$status = "Working";
+					}else if($fetchArray['issused'] ==  "2"){
+						$status = "Accept";
+					}else{
+						$status = "Close";
+					}
+					//$newDate = date("d-m-Y", strtotime($fetchArray['create_date']));
+					?>
+                    <td style="text-align:center"><?=$fetchArray['create_date']?></td>
+                    <td style="text-align:center"><?=$status?></td>
+          </tr><!-- end row-->
+		<? 
+		$i++ ;
+		} ?><!--end while -->
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3"><p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p></td>
+  </tr>
+</table>
+  </tr>
+        
+</body>
+</html>

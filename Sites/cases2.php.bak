@@ -1,0 +1,53 @@
+<?
+include "checksession.php";
+
+$title=$_POST['title'];
+$description=$_POST['description'];
+$wsitem_id=$_POST['wsitem_id'];
+$model=$_POST['model'];
+$create_by=$_POST['create_by'];
+$emp_id=$_POST['emp_id'];
+$department_id=$_POST['department_id'];
+$date=date('Y-m-d H:i:s'); 
+
+
+include "inc/FunctionDB.php";
+Conn2DB();
+
+$sql="SELECT * FROM cases ";
+$query=mysql_query($sql);
+$num=mysql_num_rows($query);
+
+$case_id=date('Y').RunID($num); //insert id from Function RunID
+
+
+$file=$_FILES;
+foreach($file as $key => $value)
+{
+	$path="upload/".$case_id.$_FILES[$key]['name'];
+	if(!empty($_FILES[$key]['name']))
+	{
+		$att .= $case_id.$_FILES[$key]['name'].',';
+	}
+	copy($_FILES[$key]['tmp_name'], $path);
+}
+
+
+$strSQL="INSERT INTO cases(case_id,create_by,section_id,com_id,title,description,attachments,issused,create_date) ";
+$strSQL.="VALUES('$case_id','$emp_id','$department_id','$wsitem_id','$title','$description','$att','0','$date')";
+$cmdQuery=mysql_query($strSQL);
+
+	if($cmdQuery){
+		echo "<script>";
+		echo "alert('Success  : ".$case_id." '); ";
+		echo "location.href='cases.php'; ";
+		echo "</script>";
+	}else{
+		echo "<script>";
+		echo "alert('Fail'); ";
+	echo "location.href='cases.php'; ";
+		echo "</script>"; 
+		#echo "???????ö????????????";	
+		#echo "<P>".mysql_error();
+	}
+?>

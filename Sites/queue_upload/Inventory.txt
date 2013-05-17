@@ -1,0 +1,223 @@
+Stock Control
+
+How many products in stock 
+- how much is already sold
+- what is on order with your suppliers 
+-----
+
+PO(Purchase Order)
+- Create POs automatically as stock runs low. 
+- Email POs straight to your supplier, they can click a link & you'll know its been received. 
+-----
+
+Reorder report shows you exactly what you need to order — from every supplier or just one. 
+It takes into account what is already on order
+-----
+
+Set a stock allocation timer (between 1 hour & 90 days) to automatically close orders & release stock if orders are not processed in time.
+-----
+
+Make manual stock adjustments for breakages or returns. Stock levels are updated instantly & reason for the change is recorded in the stock movement log.
+-----
+
+History
+- The stock movement log records the who, why, what & when for every change in stock levels. Browse the whole thing or restrict by stock code & date.
+-----
+
+Track supplier serial numbers
+- Add supplier serial numbers to your stock … both on stock received from your suppliers and sent out to your customers.
+-----
+
+
+Order Management
+
+Predict dispatch dates accurately
+- predicts when orders will be dispatched — ideal when you are waiting for stock.
+-----
+
+Answer fewer routine order enquiries
+- Email your customers automatically when orders are accepted & dispatched. Edit email content & switch on/off to suit your business
+-----
+
+Best selling products
+
+- Use the sales report to see the quantity & value of sales over any date range. Download into Excel to slice & dice your data.
+-----
+
+Give discounts on orders
+- Discount whole orders or single lines — by a percentage or an amount. Discounts will be included in your sales reports figures.
+-----
+
+
+Process orders quickly with barcodes
+-
+ Use barcodes to speed up processing of orders with inexpensive USB barcode scanners.
+-----
+
+Take pre-orders for future products
+- OrderHarmony will keep track of how much stock you need to buy in.
+-----
+
+
+See your business growing
+- Dynamic charts show you how your order volumes are growing over time. 
+-----
+
+Organise your orders
+- Browse your sales orders. Sort by customer, date & more. Filter by status (new, closed, cancelled etc.) Read about order states.
+-----
+
+Log the complete history of every order
+-Record who did what & when on every order, automatically — a complete audit trail when you need it.
+-----
+
+Create & update orders easily
+- Add lines to orders quickly with auto-completing search of product name, code, manufacturer or barcode.
+
+-----
+
+Find order by number - instantly
+- Just tap the order number into the search box to find an order.
+-----
+
+Calculate total prices accurately
+- The order summary gives you the total value of the order, including any discounts.
+-----
+
+Use your customer's order refs
+- Find orders quickly when your customer phones quoting their reference number.
+-----
+
+Product
+
+
+Keep all your product info in one place
+- Store and search product description, manufacturer, sell price, RRP, properties, images and more.
+-----
+
+Find products instantly
+-
+ Powerful product search. Find by name, product code, description, manufacturer, attributes (and more).
+-----
+
+Update multiple products at once
+- Save even more time with the ability to update multiple products in a single operation.
+-----
+
+Show prices with or without tax
+- Switch between net & gross prices, depending if your customers are trade or retail. Mouse-over prices to show full tax info. 
+-----
+
+Record product size, weight, flavour… or anything else
+- Add attributes to your products (like “colour : red”). All searchable.
+-----
+
+
+Upload product images
+- Store any number of images with your products. Include descriptions (optionally). 
+-----
+
+Purchasing and Goods In
+
+Create purchase orders in moments
+- See exactly what needs to be ordered on the reorder report. Click one button to create a PO for these items. You can edit the PO before sending it.
+-----
+
+Email purchase orders to your suppliers.
+- Know that your supplier has received your PO when they click a link & your PO is updated show it is received. No login is required. 
+-----
+
+Keep your suppliers on their toes
+- Track the estimated delivery dates for your purchases & use the PO slippage report to reveals which suppliers aren't delivering on time.
+-----
+
+Don't get short changed by suppliers
+- POs stay open until the last item has been received. Check that your suppliers don't owe you anything.
+-----
+
+Talk the same language as your suppliers
+- Track supplier references on your purchase orders — they're searchable too.
+-----
+
+
+
+Get goods delivered to the right place
+- Set up a PO delivery addresses for each warehouse or shop. Your suppliers send goods to the address you choose — its automatically included in your PO emails.
+-----
+
+Share files with your suppliers
+- Make yourself clear — share specifications, plans & drawing files with your suppliers. Include download links in emails, automatically.
+-----
+
+Record full history of purchases
+- Every update on a PO is recorded permanently for auditing and traceability. 
+-----
+
+Buy in bulk and split to sell
+- Buy boxes, pallettes or containers — in quantities of 1, 10, 100, whatever. Your stock levels will be calculated properly.
+-----
+
+Scan barcodes to receive stock at goods in
+- Find the right PO quickly by scanning any item's barcode & you'll see any POs featuring that item. Start booking goods into stock straight away.
+
+-----
+
+Archive POs by printing paper copies
+- Print POs with one click. Shows your details, delivery address, supplier's reference number, the price and quantity of every line and more.
+
+Customer
+
+Keep contact details to hand
+- Store name, company, email, phone numbers, fax, multiple addresses, notes. And its all searchable, so you'll find them quickly when they call.
+-----
+
+Find customer orders quickly
+- Jump straight from customers to orders & back. There's a list of orders on every customer page.
+-----
+
+Ship to multiple addresses
+- Add as many addresses as you need for each customer. Dispatch orders to any of their delivery addresses
+-----
+
+Instant access to customer records
+- Find customers by name, postcode, email, company, address, notes… just about instantly. 
+-----
+
+Create orders from the customer page
+- Just click a button and an order is created on your customer's account. 
+
+Customisation
+
+Personalise OrderHarmony with your Logo
+- Add your organisation’s details and your own logo for that professional feel.
+
+Manage your users
+- Carefully control who has access to your OrderHarmony account with user permission levels. 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

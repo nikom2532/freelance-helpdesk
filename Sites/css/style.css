@@ -1,0 +1,192 @@
+.wrapLeft{
+	float:left;
+	width:375px;
+	height:300px;
+	margin-left: 370px;
+	margin-top: 130px;
+	padding-left: 20px;
+	}
+.loginBg{
+	background-image:url(../images/index_bg.png);
+	background-repeat:no-repeat;
+	background-position: 350px 10px;
+	}
+.wrapRight{
+	float:left;
+	padding-top:100px;
+	width:375px;
+	height:300px;
+	margin-top: 85px;
+	padding-left: 30px;
+	}
+.head-news {
+	margin-bottom: 7px;
+	color: #999;
+}
+.content-news {
+	margin-bottom: 10px;
+	color: #36C;
+}
+
+
+.margin-bottom {
+	margin-bottom: 10px;
+}
+ul li {
+	display: block;
+	text-decoration: none;
+	margin-bottom: 10px;
+}
+
+
+.red {
+	color: #FF0000;
+}
+.green {
+	color: #006600;
+}
+.green_light {
+	color: #009900;
+}
+.tbStyle1 {
+	border: 1px solid #CCCCCC;
+	-khtml-border-radius :8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+.navy {
+	color: #0E3F87;
+}
+.blue {
+	color: #0000FF;
+	text-decoration: none;
+}
+.Gray2 {
+	color: #999999;
+}
+.Violet {
+	color: #9900CC;
+}
+.Violet2 {
+	color: #853b67;
+}
+.Violet3 {
+	color: #5e1460;
+}
+.Gray1 {
+	color: #CCCCCC;
+}
+.Gray3 {
+	color: #666666;
+}
+.Orange {
+	color: #FF9900;
+}
+.white {
+	color: #FFFFFF;
+}
+.link_blue {
+	color: #0066FF;
+	text-decoration: none;
+}
+
+.link_none {
+	color: #0066FF;
+	text-decoration: none;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 15px;
+}
+.link_navy {
+	color: #000099;
+	text-decoration: none;
+}
+.link_red {
+	color: #FF0000;
+	text-decoration: none;
+}
+.link_orange {
+	color: #FF9900;
+	text-decoration: none;
+}
+.link_white {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.link_yellow {
+	color: #ffff99;
+	text-decoration: blink;
+	font-size: 14px;
+}
+.link_brown {
+	color: #582c00;
+	text-decoration: none;
+	font-size: 14px;
+}
+.brown {
+	color: #582c00;
+}
+.brown2 {
+	color: #953735;
+}
+.Yellow {
+	color: #f8fcb1;
+}
+.bg {
+	background-attachment: fixed;
+	background-image: url(../images/bg_green.png);
+	background-repeat: repeat-x;
+	text-decoration: none;
+}
+/*
+.curvebox {font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 14px;text-decoration: none;background-color: #FFFFFF;border:1px solid #0000FF;position:relative;overflow:visible;padding:4px;}
+.curvebox b{background-image:url(../images/curve.gif);background-repeat:no-repeat;position:absolute;padding:0px;height:5px;width:5px;display:block;clear:both;line-height:1px;overflow:hidden;}
+.curvebox .c_tl{background-position:left top;margin-top:-1px;margin-left:-1px;left:0px;top:0px;}
+.curvebox .c_tr{background-position:right top;margin-top:-1px;margin-right:-1px;top:0px;right:0px;}
+.curvebox .c_bl{background-position:0px -5px;margin-bottom:-1px;margin-left:-1px;left:0px;bottom:0px;}
+.curvebox .c_br{background-position:-5px -5px;margin-bottom:-1px;margin-right:-1px;right:0px;bottom:0px;}
+*/
+
+
+
+ /* set the image to use and establish the lower-right position */
+    .cssbox, .cssbox_body, .cssbox_head, .cssbox_head h2{
+      background: transparent url(../images/img.php.png) no-repeat bottom right}
+    .cssbox{
+    /* intended total box width - padding-right(next) */
+      width:335px !important; /* IE Win = width - padding */
+      width: 320px; 
+    /* the gap on the right edge of the image (not content padding) */
+      padding-right:15px; /* use to position the box */
+      margin:20px auto}
+
+    /* set the top-right image */
+    .cssbox_head{background-position:top right;
+    /* pull the right image over on top of border */
+      margin-right:-15px; 
+    /* right-image-gap + right-inside padding */
+      padding-right:40px}
+
+    /* set the top-left image */
+    .cssbox_head h2{
+      background-position:top left;
+      margin:0; /* reset main site styles*/ 
+      border:0; /* ditto */
+    /* padding-left = image gap + interior padding ... no padding-right */
+      padding:25px 0 15px 40px; 
+      height:auto !important;
+      height:1%} /* IE Holly Hack */
+
+    /* set the lower-left corner image */
+    .cssbox_body{
+      background-position:bottom left;
+      margin-right:25px; /* interior-padding right */ 
+      padding:15px 0 15px 40px} /* mirror .cssbox_head right/left */.margin-top {
+	padding-top: 10px;
+}
+.center {
+	text-align: center;
+	margin-bottom: 10px;
+}
+.indent {
+	text-indent: 20px;
+}
